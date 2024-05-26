@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "apartments-webpass",
+  "version": "1.0.0",
+  "description": "Show Seattle WebPass availability on Apartments.com",
+  "content_scripts": [
+    {
+      "matches": [ "https://www.apartments.com/*" ],
+      "js": [ "page.js" ],
+      "all_frames": true
+    }
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [ "tabs" ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [ "*.js.map", "*.ts" ],
+      "matches": [ "<all_urls>" ]
+    }
+  ]
+}
